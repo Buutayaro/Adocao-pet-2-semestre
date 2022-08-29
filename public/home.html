@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" type="image/x-icon" href="./img/icondog.ico">
+
+  <title>Pets</title>
+
+  <link rel="stylesheet" href="css/pets.css">
+  <link rel="stylesheet" href="css/menu.css">
+  
+</head>
+
+<body>
+  <!-- MENU -->
+    <header>
+      <img src="./img/logotipofinal.png" alt="some text" width=200 height=70>
+   <!--     <h1 id='h1menu'><a href="index.html">Adote Pets JP</a></h1> -->
+        <nav class="menu">
+            <ul>
+                <li><a class='linkmenu' href="index.html">Home</a></li>
+                <li><a class='linkmenu' href="denuncia.html">Denúncia</a></li>
+                <li><a class='linkmenu' href="instituicoes.html">Intituições e ONG'S</a></li> 
+               <li><a class='linkmenu' 
+href="legislacao.html">Legislação</a></li> 
+              <li><a class='linkmenu' 
+href="index.html">Sair</a></li> 
+            </ul>
+        </nav>
+
+                <!-- MENU RESPONSIVO -->
+
+        <nav class="menuresponsivo">
+            <button class="nav-button" onclick="openNav()">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
+
+            <div id="mynav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a class='linkmenuresponsivo' href="index.html">Home</a>
+                    <a class='linkmenuresponsivo' href="denuncia.html">Denúncia</a>
+                    <a class='linkmenuresponsivo' href="instituicoes.html">Instituições e ONG'S</a>
+                  <a class='linkmenuresponsivo' href="legislacao.html">Legislação</a>
+                    <a class='linkmenuresponsivo' href="index.html">Sair</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+      
+  <div class="form">
+    <div class="frame">
+      <h2 class="text-align">Pets para adoção e doação</h2>
+    </div>
+
+    <div class="cards">
+      <main>
+        
+      </main>
+    </div>
+  </div>  
+  
+
+  <footer>
+    <div id="copy-area">
+    <div class="container">
+      <div class="row1">
+          <div class="col-md-12">
+            <p>Desenvolvido por <a href="#" target="_blank">Equipe do Adote Vidas JP</a> &copy; 2022</p>
+          </div>
+      </div>
+    </div>
+  </div>
+  </footer>
+
+
+  
+  <script>
+    const main = document.querySelector('main')
+    
+function createPetView(pet) {
+      const view = `<div class="col" id="meliponario-${pet.id}">
+         <div class="meliponario_card">
+          <div class="card-header">
+             ${pet.name}
+             <span 
+                      onclick="destroyPet(${pet.id})"
+          >
+<input type="submit" class="btn1" value="Excluir">
+            </span>
+            </div>
+           <div class="card-body">
+            <p class="card-caixa">Vacina: ${pet.vaccine}</p>
+            <p class="card-caixa">Tipo: ${pet.type} </p>       
+            <p class="card-caixa">ONG: ${pet.ong} </p>
+            <p class="card-caixa">Gênero : ${pet.gender} </p>
+            <p class="card-caixa">Comorbidade:  ${pet.comorb}</p>
+            <p class="card-caixa">Tamanho:  ${pet.size}</p>
+            <p class="card-caixa">Região: ${pet.regiao}</p>
+          </div>
+          </div>
+        </div>
+       </div>`;
+
+      main.insertAdjacentHTML('beforeend', view);
+    }
+
+    async function loadPets() {
+  
+    const url = '/pets';
+
+    const pets = await (await fetch(url)).json();
+
+    for (const pet of pets) {
+    createPetView(pet);
+    }
+   }  
+    
+    async function destroyPet(id) {
+      const url = `/pets/${id}`;
+
+      const config = {
+        method: 'delete',
+      };
+
+      fetch(url, config);
+
+      document.querySelector(`#pet-${id}`).remove();
+    }
+
+async function aplicar() {
+        const regioesFilter = document.querySelector("select[name=regioesFilter]").value;
+
+        const url = `/pets?regioes=${regioesFilter}`;
+        
+        const pets = await (await fetch(url)).json();
+      
+        main.innerHTML = '';
+      
+         for (const pet of pets) {
+    createPetView(pet);
+    }
+   }  
+   
+   loadPets();
+  </script>
+</body>
+
+</html>

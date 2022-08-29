@@ -1,0 +1,146 @@
+                /* IMPORTAÇÕES */
+
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+                 
+                 /* VARIAVEIS */
+:root{
+                 
+         /* CORES */
+                 
+    --cor1: #333;
+    --cor2: bisque;
+    --cor3: #ecd1b1;
+    --cor4: #F2F2F2;
+    --cor5: #260306;
+    --cor6: #60747B;
+    --cor7: black;
+                 
+         /* FONTES */
+                     
+    --fonte1: 'Passion One', cursive;
+    --fonte2: 'Bebas Neue', cursive;
+}
+                 
+                 /* CONFIGURAÇÕES GERAIS */
+                 
+*{
+    padding: 0;
+    margin: 0;
+}
+                 
+body{
+    font-family: var(--fonte2);
+}
+                 
+                 /* MENU */
+                 
+header{
+    background-color: var(--cor4);
+    height: 15vh;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.568);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9F9F9;
+}
+                 
+nav{
+    padding: 20px;
+    align-items: center;
+}
+                 
+#h1menu{
+    padding-left: 20px;
+}
+                 
+a{
+    text-decoration: none;
+    color: var(--cor1);
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+                 
+nav > ul{
+    display: flex;
+    list-style: none;
+}
+                 
+.linkmenu{
+    padding: 10px;
+    font-size: 1.5em;
+    align-items: center;
+    transition: all .5s;
+}
+                 
+.linkmenu:hover{
+    background-color: var(--cor4);
+    border-radius: 3px;
+    transition: all .5s;
+   /* margin-top: 200px; */
+}
+ 
+                 /* MENU RESPONSIVO */        
+         
+.menuresponsivo{
+    display: none;
+}
+ 
+@media (max-width: 1300px) {
+    .menu{
+        display: none;
+    }
+ 
+    .menuresponsivo{
+        display: block;
+    }
+ 
+    .nav-button{
+        border: 0;
+        background-color: transparent;
+        color: black;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 999;
+    }
+ 
+    .overlay{
+        background-color: var(--cor4);
+        width: 0%;
+        height: 100%;
+        z-index: 9;
+        position: fixed;
+        right: 0;
+        top: 0;
+        overflow-x: hidden;
+        transition: all 0.5s;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.568);
+    }
+ 
+    .overlay-content{
+        position: relative;
+        top: 30vh;
+        text-align: center;
+    }
+ 
+    .linkmenuresponsivo:hover{
+        background-color: var();
+        border-radius: 3px;
+        transition: all .5s;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.568);
+    }
+ 
+    .overlay-content a{
+        display: block;
+        padding: 10px;
+        font-size: 1.5em;
+    }
+ 
+    .closebtn{
+        position: absolute;
+        top: 25px;
+        right: 40px;
+        font-size: 2.5em;
+    }
+}

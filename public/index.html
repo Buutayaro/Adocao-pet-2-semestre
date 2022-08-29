@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="img/icondog.ico">
+
+  <title>Adote Pets JP</title>
+
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/menu.css">
+   <script src="funcoes/menu.js"></script>
+</head>
+
+<body>
+  <!-- MENU -->
+    <header>
+      <img src="./img/logotipofinal.png" alt="some text" width=200 height=70>
+   <!--     <h1 id='h1menu'><a href="index.html">Adote Pets JP</a></h1> -->
+        <nav class="menu">
+            <ul>
+                <li><a class='linkmenu' href="index.html">Home</a></li>
+                <li><a class='linkmenu' href="denuncia.html">Denúncia</a></li>
+                <li><a class='linkmenu' href="instituicoes.html">Intituições e ONG'S</a></li>
+              <li><a class='linkmenu' 
+href="pets.html">Pets</a></li> 
+               <li><a class='linkmenu' 
+href="legislacao.html">Legislação</a></li> 
+            </ul>
+          <div class='conta'>
+              <p id='paragrafo1'><a id='log' class='clink' href="signin.html">Entrar</a></p>
+              <p id='paragrafo2'><a id='sing' class='clink' href="signup.html">Cadastre-se</a></p>
+          </div>
+        </nav>
+
+                <!-- MENU RESPONSIVO -->
+
+        <nav class="menuresponsivo">
+            <button class="nav-button" onclick="openNav()">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
+
+            <div id="mynav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a class='linkmenuresponsivo' href="index.html">Home</a>
+                    <a class='linkmenuresponsivo' href="denuncia.html">Denúncia</a>
+                    <a class='linkmenuresponsivo' href="instituicoes.html">Instituições e ONG'S</a>
+                   <a class='linkmenuresponsivo' href="pets.html">Pets</a>
+                  <a class='linkmenuresponsivo' href="legislacao.html">Legislação</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+  <main>
+
+        <div class="video">
+            <div class="paravideo">
+                <div class="container">
+                    <video autoplay muted loop>
+                        <source src="video/PET2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="paracontent">
+                <div class="container">
+                    <h1 class="main-title">Adote Pets JP</h1>
+                </div>
+            </div>
+            </div>
+        </div>
+            
+       
+<!-- Sobre a empresa -->
+  <div id="about-area">
+    <div class="container" style="margin-top: -50px;">
+      <div class="row">
+        <!-- <div class="col-12"> 
+          <h3 class="main-title">Adote Vidas JP</h3>
+        </div> -->
+        <div class="geral">
+          <iframe class= "video" width = "550" height = "300" src = "https://www.youtube.com/embed/D_Rx4qZ8QRc" title = "YouTube video player" frameborder = "0" allow = "acelerômetro; reprodução automática; gravação na área de transferência; mídia criptografada; giroscópio; imagem em imagem" allowfullscreen> </iframe> <img   class="img-fluid" width = "550" height = "300" src="img/4.jpg" alt="pet">
+        </div>
+        
+        <div class="col-md-12">
+          <h3 class="about-title">Tem como intuito informar sobre a adoção de animais em João Pessoa.</h3>
+          <p>A adoção é uma atitude nobre, quando você adota um cachorrinho, você está ajudando ele para que ele tenha uma vida de qualidade e feliz</p>
+          <p>Aqui será possível achar de forma rápida informações sobre quais são as  ONG's e Instituições de animais de João Pessoa. </p>
+          <p> Segundo Pádua Dias: </p>
+          <blockquote cite = "https://www.pensador.com/adocao/">
+            <div atitude = "outside"> "Adoção: amor em e ação." </div>
+          </blockquote>
+          
+          <p class="col-md-6">Para adotar um cachorrinho você precisa de:</p>
+          <ul id="about-list">
+            <li><i class="fas fa-check"></i> Possuir idade mínima a adotante precisa ser maior de 21 anos</li>
+            <li><i class="fas fa-check"></i> Precisa apresentar o RG</li>
+            <li><i class="fas fa-check"></i> Apresentar CPF </li>
+            <li><i class="fas fa-check"></i> Apresentante comprovante de residência recente</li>
+            <li><i class="fas fa-check"></i> Assinar um termo se comprometendo a cuidar do animal </li>
+          </ul>
+        </div>
+         <div class="cadastro">
+         <a class="link" href="./signup.html">
+           <h2 class="text-color">Se você é uma instituição ou uma ONG, clique aqui!</h2>
+         </a>
+        </div>
+      </div>
+    </div>
+</div>
+
+    
+       
+</main>
+<!-- Rodapé -->
+<footer>
+  <div id="copy-area">
+    <div class="container">
+      <div class="row1">
+          <div class="col-md-12">
+            <p>Desenvolvido por <a href="#" target="_blank">Equipe do Adote Vidas JP</a> &copy; 2022</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</footer>
+<script src="js/scripts.js"></script>
+</body>
+</html>

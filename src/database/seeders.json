@@ -1,0 +1,136 @@
+{
+  "regioes": [
+    {
+      "id": 1,
+      "UF": "João Pessoa"
+    },
+    {
+      "id": 2,
+      "UF": "Campina Grande"
+    },
+    {
+      "id": 3,
+      "UF": "Conde"
+    },
+     {
+      "id": 4,
+      "UF": "Santa Rita"
+    },
+    {
+      "id": 5,
+      "UF": "Lucena"
+    },
+    {
+      "id": 6,
+      "UF": "Cabedelo"
+    },
+   {
+      "id": 7,
+      "UF": "Guarabira"
+    }
+  ],
+  
+  "especies": [
+    {
+      "tamanho": 10,
+      "comportamento": "Pode chegar a uma população de quatro mil a seis mil habitantes por colmeia,produz cerca de dois a quatro litros de mel por ano" ,
+      "nome_cientifico":"Melipona scutellaris",
+      "cor":" A Uruçu possui corpo robusto (marrom e preto), vértice marrom-amarelado, com pelos abundantes amarelo-ruivos, frequentemente com alguns mais claros, cor de ouro."
+    },
+    {
+      "tamanho":6, 
+      "comportamento": "São uma das menores abelhas do gênero Melipona, por serem um pouco agressivas e produzirem um mel muito saboroso." ,
+      "nome_cientifico":"Melipona asilvai",
+      "cor":"predominantemente preta com marcar amarelas"
+    },
+    {
+      "tamanho": 12,
+      "comportamento":"Abelhas grandes, robustas e ótimas produtoras de mel" ,
+      "nome_cientifico":"Melipona scutellaris" ,
+      "cor": "predominante amarela com marcar pretas" 
+    }
+  ],
+  
+  "pets": [
+   {
+           "name": "Ptolomeu",
+           "vaccine": "Em dia",
+           "type": "Cachorrinho",
+            "ong": "Adota JP",
+            "gender": "Macho",
+            "size": "Pequeno",
+            "comorb": "nenhuma",
+            "regioes_id": 1
+        },
+
+            {
+                "name": "Betinha",
+                "vaccine":"Em dia",
+                "type": "Gatinho",
+                "ong": "Bicho a Bessa",
+                "gender": "Fêmea",
+                "size": "Pequeno",
+                "comorb": "nenhuma",
+                "regioes_id": 2
+
+            },
+            {
+                "name": "--",
+                "vaccine": "não completo",
+                "type": "Gatinhos",
+                "ong": "Bicho a Bessa",
+                "gender": "Misto",
+                "size": "Ninhada",
+                "comorb": "nenhuma",
+                "regioes_id": 3       
+            },
+       
+            {
+               "name": "Gael",
+              "vaccine": "Em dia",
+               "type": "Gatinho",
+               "ong": "Bicho a Bessa",
+               "gender": "Macho",
+               "size": "Médio",
+               "comorb": "nenhuma",
+                "regioes_id": 4
+            },
+
+    
+            {
+               "name": "--",
+               "vaccine": "não completo",
+                "type": "Cachorrinhos",
+                "ong": "Amigo Bicho",
+                "gender": "--",
+                "size": "Médio/Grande",
+                "comorb": "nenhuma",
+                "regioes_id": 5
+            },
+
+          
+            {
+               "name": "Jorge",
+                "vaccine": "Em dia",
+                "type": "Gatinho",
+                "ong": "Bicho a Bessa",
+                "gender": "Macho",
+                "size": "Pequeno",
+                "comorb": "nenhuma",
+                "regioes_id": 6
+            },
+
+         
+            {
+               "name": "Cláudio",
+                "vaccine": "Em dia",
+                "type": "Animais",
+                "ong": "Centro de Zoonoses",
+                "gender": "Macho",
+                "size": "Médio",
+                "comorb": "nenhuma",
+                "regioes_id": 7
+                
+          }
+    ]
+}

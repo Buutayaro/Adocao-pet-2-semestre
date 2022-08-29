@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body{
+    height: 100%;
+    justify-content: center;
+    
+}
+
+*{
+    margin: none ;  /* Margem */
+    list-style: none ; /* Elimina marcadores do menu */
+}
+           
+
+/* LONGIN/SINGUP */
+            
+.conta{
+  display: flex;
+  font-size: 25px;
+  transition: 0.5s;
+  margin-top: -80px;
+  float: right;
+}
+
+.clink{
+  text-decoration: none;
+  padding: 15PX;
+}
+
+#log{
+  color:var(--cor2);
+  font-weight: bold;
+}
+
+#log:hover{
+  color: #ff973d;
+}
+
+#sing{
+  background-color: #ff973d;
+  color: white;
+  font-weight: bold;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+#sing:hover{
+  background-color: #e48635;
+  color: white;
+  transition: 0.5s;
+}
+
+.conta > p{
+  padding: 10px;
+}
+
+
+.container2{
+  height: 1200px;
+  max-width: 800px;
+  width: 100%;
+  background-color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin-top: 100px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.585);
+}
+.container2 .titulo{
+  font-size: 10px;
+  font-weight: 200;
+  position: relative;
+}
+.container2 p{
+  font-size: 14px;
+  font-weight: 200;
+  position: relative;
+}
+.container2 .titulo::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 10px;
+  width: 20px;
+  background: linear-gradient(135deg,#ffddc2, #ff923d );
+}
+.container2 form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+form .user-details .area{
+  margin: 14px 12px 0;
+  width: calc(100% / 2 - 40px);
+}
+textarea{  
+   box-sizing: padding-box; 
+ /*  demo only: */
+  width:300px;
+  height: 110px;
+  margin-bottom: 15px;
+  font-size:14px;
+  display:block;
+  border-radius:10px;
+ border:0.5px solid #ccc;
+  border:0.5px  #ccc; 
+  resize: none;
+  padding: 20%;
+}
+
+
+
+
+.user-details .area .details{
+  font-weight: 300;
+  margin-bottom: 5px;
+  display: block;
+}
+.user-details .area input{
+  height: 25px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 10px;
+  border-bottom-width: 2px;
+  transition: all 0.3 ease;
+}
+
+.user-details .area input:focus,
+.user-details .area input:valid{
+  border-color: #ffeac3;
+}
+.arquivos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+form .button1{
+  width: 50px 0;
+  height: 50px;
+}
+
+form .button1 input{
+  width: 100%;
+  margin-top: 10px;
+  height: 100%;
+  outline: none;
+  text-align: center;
+  padding: 15px 20px;
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg,#ffddc2, #ff973d );
+  font-size: 18px;
+  transition: 1s;
+  cursor: pointer;
+}
+form .button1 input:hover{
+  background: linear-gradient(-135deg,#ffddc2, #ff973d );
+}
+
+/* Copy */
+  
+  #copy-area {
+    background-color: #F9F9F9;
+  }
+  
+  #copy-area .container {
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  #copy-area .container p {
+    margin-bottom: 0;
+  }
+  
+  #copy-area .container a {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  #copy-area .container a:hover {
+    text-decoration: none;
+    color: #ff953a;
+  }

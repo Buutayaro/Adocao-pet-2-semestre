@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    margin-left: 10;
+    margin-right: 0px;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box; 
+    font-family: "Poppins", sans-serif;
+}
+
+.texto {
+    text-align: justify;
+    max-width: 1200px;
+    margin: auto;
+ }
+
+.linkmenu{
+    padding: 10px;
+    font-size: 1.5em;
+    align-items: center;
+    transition: all .5s;
+}
+
+  /* Copy */
+  
+#copy-area {
+    background-color: #f1f1f1;
+  }
+  
+  #copy-area .container {
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  #copy-area .container p {
+    margin-bottom: 0;
+  }
+  
+  #copy-area .container a {
+    font-weight: bold;
+    color: #444; 
+  }
+  
+  #copy-area .container a:hover {
+    text-decoration: none;
+    color: #ff953a;
+  }
+
+/* imagem */
+
+.fotolegislacao{
+    background-color: var(--cor2);
+    transition: all 1s;
+}
+
+.fotolegislacao:hover{
+    background-color: var(--cor3);
+    transition: all 1s;
+}
+
+.foto{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.foto > div{
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+@media (max-width: 700px){
+    .foto > div {
+        flex: 1 1 150px;
+    }
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.zoom{
+    overflow: hidden;
+    transition: all .5s;
+}
+
+.zoom img{
+    transition: all .5s;
+}
+
+.zoom img:hover{
+    transform: scale(1.1);
+    transition: all .5s;
+}

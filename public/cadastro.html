@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/icondog.ico">
+    <link rel="stylesheet" href="css/PET.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <title>Cadastro de Pets</title>
+  <style>
+        body {
+          background-color: bisque;
+        }
+      </style>
+</head>
+
+<body>
+  <!-- MENU -->
+    <header>
+      <img src="./img/logotipofinal.png" alt="some text" width=200 height=70>
+   <!--     <h1 id='h1menu'><a href="index.html">Adote Pets JP</a></h1> -->
+        <nav class="menu">
+            <ul>
+                <li><a class='linkmenu' href="index.html">Home</a></li>
+                <li><a class='linkmenu' href="denuncia.html">Denúncia</a></li>
+                <li><a class='linkmenu' href="instituicoes.html">Intituições e ONG'S</a></li> 
+                 <li><a class='linkmenu' href="pets.html">Pets</a></li> 
+               <li><a class='linkmenu' href="legislacao.html">Legislação</a></li> 
+              <li><a class='linkmenu' href="#" onclick='signout()'>Sair</a></li> 
+            </ul>
+        </nav>
+
+                <!-- MENU RESPONSIVO -->
+
+        <nav class="menuresponsivo">
+            <button class="nav-button" onclick="openNav()">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
+
+            <div id="mynav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a class='linkmenuresponsivo' href="index.html">Home</a>
+                    <a class='linkmenuresponsivo' href="denuncia.html">Denúncia</a>
+                    <a class='linkmenuresponsivo' href="instituicoes.html">Instituições e ONG'S</a>
+                    <a class='linkmenuresponsivo' href="pets.html">Pets</a>
+                  <a class='linkmenuresponsivo' href="legislacao.html">Legislação</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+  
+    <div class="container">
+        <form class="row">
+            <div class="row1">
+                <div class="col-text">
+                    <label for="name" class="form-label">Nome:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+            </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="vaccine" class="form-label">Vacina:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="vaccine" name="vaccine">
+                </div>
+            </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="type" class="form-
+label">Tipo:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="type" name="type">
+                </div>
+            </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="ong" class="form-label">Ong:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="ong" name="ong">
+                </div>
+            </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="gender" class="form-label">
+Gênero:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="gender" name="gender">
+                </div>
+            </div>
+            <div class="row1">
+               <div class="col-text">
+                    <label for="regiao" class="form-label ">Regiões</label>
+                </div>
+              <div class="col-auto">
+                 <select class="form-control" id="regiao" name="regioes_id"></select>
+                </div>
+            </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="comorb" class="form-label">Comorbidade:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="col-auto-descricao" id="comorb" name="comorb">
+                </div>
+            </div>
+            <div class="col-auto">
+                <input type="submit" class="btn" value="Cadastrar">
+            </div>
+        </form>
+    </div>
+    <script type="module">
+
+        import Auth from './funcoes/auth.js';
+
+    // window.destroyPet = destroyPet;
+    window.signout = Auth.signout;
+
+        const form = document.querySelector('form');
+        const main = document.querySelector('main');
+
+        if (Auth.isAuthenticated()) {
+      loadPets();
+      loadCategories();
+    }else {
+          location.href = '/signup.html';
+    }
+
+    form.onsubmit = (event) => {
+      event.preventDefault();
+
+      const pet = Object.fromEntries(new FormData(form));
+
+      createPet(pet);
+
+      form.reset();
+    };
+
+      async function createPet(pet) {
+      const url = '/pets';
+
+      const config = {
+        method: 'post',
+        body: JSON.stringify(pet),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          Authorization: `Bearer ${Auth.getToken()}`,
+        },
+      };
+
+      const newPet = await (await fetch(url, config)).json();
+
+  //    createMeliponarioView(newMeliponario);
+        
+      location.href="/home.html"
+    }
+
+      async function loadregioes() {
+      const select = document.querySelector('#regiao');
+
+      const url = '/regioes';
+
+      const regioes = await (await fetch(url)).json();
+
+      for (const regiao of regioes) {
+        const option = `<option value="${regiao.id}">${regiao.UF}</option>`;
+
+       select.insertAdjacentHTML('afterbegin', option);
+      }
+    }  
+
+      loadregioes()
+    </script>
+
+
+</body>
+</html>
