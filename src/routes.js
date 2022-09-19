@@ -5,6 +5,7 @@ import pet from "./models/pet.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { isAuthenticated } from "./middleware/auth.js";
+import SendMail from './services/sendMail.js';
 
 
 const router = Router();
@@ -108,6 +109,8 @@ router.post('/users', async (req, res) => {
     const user = req.body;
 
     const newUser = await User.create(user);
+
+    await SendMail.createNewUser(user.email);
 
     res.json(newUser);
   } catch(error) {
