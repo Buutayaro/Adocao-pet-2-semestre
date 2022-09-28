@@ -1,4 +1,4 @@
-,@token = {{login.response.body.token}}
+@token = {{login.response.body.token}}
 @host = http://localhost:3000
 
 ### Valid Login
@@ -10,4 +10,21 @@ Content-Type: application/json
 {
     "email": "luiz@email.com",
     "password": "123"
+}
+
+### Cadastrar Pet
+
+POST {{host}}/pet
+Content-Type: application/json
+Authorization: bearer {{token}}
+
+{
+    "name": "Torta de Frango",
+    "vaccine": "em dia",
+    "type": "Gatinho",
+    "ong": "Adote jp",
+    "gender": "fêmea",
+    "comorb": "nenhuma",
+    "size": "médio",
+    "regioes_id": 8
 }

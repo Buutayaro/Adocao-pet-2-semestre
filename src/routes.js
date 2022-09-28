@@ -1,7 +1,7 @@
 import { Router } from "express";
 import Regiao from "./models/regiao.js";
 import User from "./models/User.js";
-import pet from "./models/pet.js";
+import Pet from "./models/pet.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { isAuthenticated } from "./middleware/auth.js";
@@ -13,7 +13,7 @@ const router = Router();
 router.get('/', (req, res) => res.redirect('/index.html'));
 
 router.get('/pets', async (req, res) => {
-  const pets = await pet.readAll();
+  const pets = await Pet.readAll();
 
   res.json(pets);
 });
@@ -25,9 +25,9 @@ router.get('/pet', async (req, res) => {
   let pets = [];
 
   if (gender)
-    pets = await pet.ReadBygender(gender)
+    pets = await Pet.ReadBygender(gender)
  else 
-    pets = await pet.readAll();
+    pets = await Pet.readAll();
   
  /* if (gender)
     pets = await Pet.ReadByFilter(pets)
@@ -50,16 +50,21 @@ router.get('/pet', async (req, res) => {
 
 router.post('/pet', isAuthenticated, async (req, res) => {
   try {
-  const pet = req.body;
+    
+    const userId = req.userId;
 
-  const newPet = await pet.create(pet);
-
-  // console.log('New', newMeliponario)
-
-  res.json(newPet);
-  } catch(error) {
-    throw new Error('Error in create Pet');
-  }
+    const user = await User.read(userId);
+    
+    const pet = req.body;
+  
+    const newPet = await Pet.create(pet);
+  
+    await SendMail.createNewPet(user.email);
+  
+    res.json(newPet);
+    } catch(error) {
+      throw new Error('Error in create Pet');
+    }
 });
 
 router.put('/pet/:id', isAuthenticated, async (req, res) => {
@@ -68,7 +73,7 @@ router.put('/pet/:id', isAuthenticated, async (req, res) => {
 
   const pet = req.body;
 
-  const newPet = await pet.update(pet, id);
+  const newPet = await Pet.update(pet, id);
 
   if (newPet) {
     res.json(newPet);
@@ -84,7 +89,7 @@ router.delete('/pet/:id', isAuthenticated, async (req, res) => {
    try {
   const id = Number(req.params.id);
 
-  if (await pet.destroy(id)) {
+  if (await Pet.destroy(id)) {
     res.status(204).send();
   } else {
     res.status(400).json({ error: 'Pet não encontrado.' });

@@ -111,6 +111,15 @@ Gênero:</label>
                     <input type="text" class="col-auto-descricao" id="comorb" name="comorb">
                 </div>
             </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="size" class="form-label">
+Tamanho:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="size" name="size">
+                </div>
+            </div>
             <div class="col-auto">
                 <input type="submit" class="btn" value="Cadastrar">
             </div>
@@ -126,11 +135,8 @@ Gênero:</label>
         const form = document.querySelector('form');
         const main = document.querySelector('main');
 
-        if (Auth.isAuthenticated()) {
-      loadPets();
-      loadCategories();
-    }else {
-          location.href = '/signup.html';
+    if (!Auth.isAuthenticated()) {
+            location.href = '/signup.html';
     }
 
     form.onsubmit = (event) => {
@@ -144,7 +150,7 @@ Gênero:</label>
     };
 
       async function createPet(pet) {
-      const url = '/pets';
+      const url = '/pet';
 
       const config = {
         method: 'post',
