@@ -54,6 +54,7 @@
   "pets": [
    {
            "name": "Ptolomeu",
+           "image": "/img/AdotaJP.png",
            "vaccine": "Em dia",
            "type": "Cachorrinho",
             "ong": "Adota JP",
@@ -65,6 +66,7 @@
 
             {
                 "name": "Betinha",
+                "image": "/img/Bichoabessa.png",
                 "vaccine":"Em dia",
                 "type": "Gatinho",
                 "ong": "Bicho a Bessa",
@@ -76,6 +78,7 @@
             },
             {
                 "name": "--",
+                "image": "/img/Anjosderua.png",
                 "vaccine": "não completo",
                 "type": "Gatinhos",
                 "ong": "Bicho a Bessa",
@@ -87,7 +90,8 @@
        
             {
                "name": "Gael",
-              "vaccine": "Em dia",
+                "image": "/img/patinhasfelizes.png",
+                "vaccine": "Em dia",
                "type": "Gatinho",
                "ong": "Bicho a Bessa",
                "gender": "Macho",
@@ -99,6 +103,7 @@
     
             {
                "name": "--",
+              "image": "/img/Amigobicho.png",
                "vaccine": "não completo",
                 "type": "Cachorrinhos",
                 "ong": "Amigo Bicho",
@@ -111,6 +116,7 @@
           
             {
                "name": "Jorge",
+                "image": "/img/adote2.png",
                 "vaccine": "Em dia",
                 "type": "Gatinho",
                 "ong": "Bicho a Bessa",
@@ -123,6 +129,7 @@
          
             {
                "name": "Cláudio",
+                "image": "/img/zoonoses.png",
                 "vaccine": "Em dia",
                 "type": "Animais",
                 "ong": "Centro de Zoonoses",

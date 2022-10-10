@@ -5,7 +5,7 @@ async function readAll() {
 
   const sql = `
      SELECT 
-      m.codpets, m.name, m.vaccine, m.type, m.ong, m.gender, m.comorb, m.size, r.UF as regiao
+      m.codpets, m.name, m.image, m.vaccine, m.type, m.ong, m.gender, m.comorb, m.size, r.UF as regiao
     FROM 
       pet as m INNER JOIN regioes as r
     ON
@@ -22,7 +22,7 @@ async function read(id) {
 
   const sql = `
     SELECT 
-      m.codpets, m.name, m.vaccine, m.type, m.ong, m.gender, m.comorb, m.size, r.UF as regiao
+      m.codpets, m.name, m.image, m.vaccine, m.type, m.ong, m.gender, m.comorb, m.size, r.UF as regiao
     FROM 
       pet as m INNER JOIN regioes as r
     ON
@@ -43,12 +43,12 @@ async function create(pet) {
 
   const sql = `
     INSERT INTO
-      pet (name, vaccine, type, ong, gender, comorb, size, regioes_id)
+      pet (name, image, vaccine, type, ong, gender, comorb, size, regioes_id)
     VALUES
-      (?, ?, ?, ?, ?, ?, ?, ?)
+      (?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
-  const {lastID} = await db.run(sql, [name, vaccine, type, ong, gender, comorb, size, regioes_id]);
+  const {lastID} = await db.run(sql, [name, image, vaccine, type, ong, gender, comorb, size, regioes_id]);
 
   // const newMeliponario = await read(lastID);
     // console.log('New', lastID, newMeliponario)
@@ -60,18 +60,18 @@ async function create(pet) {
 async function update(pet, id) {
   const db = await Database.connect();
 
-  const { name, vaccine, type, ong, gender, comorb, size, regiao_id } = pet;
+  const { name, image, vaccine, type, ong, gender, comorb, size, regiao_id } = pet;
 
   const sql = `
     UPDATE 
       pet
     SET
-      name = ?, vaccine = ?, type = ?, ong =?, gender = ?, comorb = ?, size = ?, regioes_id = ?
+      name = ?, image = ?, vaccine = ?, type = ?, ong =?, gender = ?, comorb = ?, size = ?, regioes_id = ?
     WHERE
       codpets = ?
   `;
 
-  const { changes } = await db.run(sql, [name, vaccine, type, ong, gender, comorb, size, regiao_id, codpets]);
+  const { changes } = await db.run(sql, [name, image, vaccine, type, ong, gender, comorb, size, regiao_id, codpets]);
 
   if (changes === 1) {
     return read(codpets);

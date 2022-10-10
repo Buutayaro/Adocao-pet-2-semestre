@@ -19,7 +19,11 @@ async function create(user) {
 
   const {lastID} = await db.run(sql, [name, email, hash]);
 
-  return read(lastID);
+    const newUser = await read(lastID);
+
+    delete newUser.password;
+
+    return newUser;
 }
 
 async function read(id) {

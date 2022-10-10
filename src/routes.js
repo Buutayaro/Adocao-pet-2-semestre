@@ -1,9 +1,12 @@
 import { Router } from "express";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+import multer from 'multer';
+
+import uploadConfig from './config/multer.js';
 import Regiao from "./models/regiao.js";
 import User from "./models/User.js";
 import Pet from "./models/pet.js";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
 import { isAuthenticated } from "./middleware/auth.js";
 import SendMail from './services/sendMail.js';
 
@@ -48,41 +51,57 @@ router.get('/pet', async (req, res) => {
  });
 
 
-router.post('/pet', isAuthenticated, async (req, res) => {
-  try {
+router.post(
+  '/pet',
+  isAuthenticated,
+  multer(uploadConfig).single('image'),
+  async (req, res) => {
+    try {
+      
+        const userId = req.userId;
     
-    const userId = req.userId;
-
-    const user = await User.read(userId);
-    
-    const pet = req.body;
+        const user = await User.read(userId);
+        
+        const pet = req.body;
   
-    const newPet = await Pet.create(pet);
-  
-    await SendMail.createNewPet(user.email);
-  
-    res.json(newPet);
+        const image = req.file
+          ? `/img/${req.file.filename}`
+          : '/img/placeholder.jpg';
+      
+        const newPet = await Pet.create({ ...pet, image });
+      
+        await SendMail.createNewPet(user.email);
+      
+        res.json(newPet);
     } catch(error) {
       throw new Error('Error in create Pet');
     }
 });
 
-router.put('/pet/:id', isAuthenticated, async (req, res) => {
-   try {
-  const id = Number(req.params.id);
+router.put(
+  '/pet/:id', 
+  isAuthenticated, 
+  multer(uploadConfig).single('image'), 
+  async (req, res) => {
+     try {
+      const id = Number(req.params.id);
+    
+      const pet = req.body;
 
-  const pet = req.body;
-
-  const newPet = await Pet.update(pet, id);
-
-  if (newPet) {
-    res.json(newPet);
-  } else {
-    res.status(400).json({ error: 'Pet não encontrado.' });
-  }
-  } catch(error) {
-    throw new Error('Error in update Pet');
- }
+      const image = req.file
+          ? `/img/${req.file.filename}`
+          : '/img/placeholder.jpg';
+    
+      const newPet = await Pet.update({ ...pet, image }, id);
+    
+      if (newPet) {
+        res.json(newPet);
+      } else {
+        res.status(400).json({ error: 'Pet não encontrado.' });
+      }
+    } catch(error) {
+      throw new Error('Error in update Pet');
+   }
 });
 
 router.delete('/pet/:id', isAuthenticated, async (req, res) => {

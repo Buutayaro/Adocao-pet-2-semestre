@@ -16,6 +16,7 @@ async function up() {
     CREATE TABLE pet (
         codpets INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(20) NOT NULL,
+        image VARCHAR(50) NOT NULL,
         vaccine VARCHAR(20) NOT NULL,
         type VARCHAR(20) NOT NULL,
         ong VARCHAR(20) NOT NULL,
