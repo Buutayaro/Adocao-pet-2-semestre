@@ -2,7 +2,7 @@ import path from 'node:path';
 import { randomBytes } from 'node:crypto';
 import multer from 'multer';
 
-const uploadPath = path.resolve('public', 'imgs', 'foods');
+const uploadPath = path.resolve('public', 'img');
 
 const storageTypes = {
   local: multer.diskStorage({

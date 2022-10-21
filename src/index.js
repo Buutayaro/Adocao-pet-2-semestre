@@ -4,8 +4,6 @@ import express from 'express';
 import morgan from 'morgan';
 import router from './routes.js';
 
-//import Meliponario from './database/Meliponario.js';
-
 
 const app = express();
 const port = process.env.PORT || 3000;

@@ -9,8 +9,10 @@
 
   <title>Pets</title>
 
+  
   <link rel="stylesheet" href="css/pets.css">
   <link rel="stylesheet" href="css/menu.css">
+  
   
 </head>
 
@@ -106,9 +108,12 @@
       </main>
     </div>
   </div>  
+  <br>
+  <br>
   
 
 <footer>
+  <br>
   <div id="copy-area">
     <div class="container">
       <div class="row">
@@ -130,8 +135,10 @@ function createPetView(pet) {
          <div class="meliponario_card">
           <div class="card-header">
              ${pet.name}
+             
             </div>
            <div class="card-body">
+            <img src="${pet.image}" class="card-caixa" alt="${pet.name}"/>
             <p class="card-caixa">Vacina: ${pet.vaccine}</p>
             <p class="card-caixa">Tipo: ${pet.type} </p>       
             <p class="card-caixa">ONG: ${pet.ong} </p>

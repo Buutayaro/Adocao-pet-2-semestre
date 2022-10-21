@@ -8,7 +8,8 @@
     "dev": "node src/index.js",
     "start": "nodemon src/index.js",
     "db:drop": "rm src/database/db.sqlite",
-    "db:load": "node src/database/load.js"
+    "db:load": "node src/database/load.js",
+    "db:reload": "npm run db:drop && npm run db:load"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,17 @@
 @token = {{login.response.body.token}}
 @host = http://localhost:3000
 
+### Create User
+
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "name": "Teste",
+    "email": "teste@email.com",
+    "password": "123"
+}
+
 ### Valid Login
 
 # @name login
@@ -8,7 +19,7 @@ POST {{host}}/signin
 Content-Type: application/json
 
 {
-    "email": "luiz@email.com",
+    "email": "teste@email.com",
     "password": "123"
 }
 
@@ -28,3 +39,48 @@ Authorization: bearer {{token}}
     "size": "médio",
     "regioes_id": 8
 }
+
+### Create pet with image
+
+POST {{host}}/pet
+Authorization: bearer {{token}}
+Content-Type: multipart/form-data; boundary="boundary"
+
+--boundary
+Content-Disposition: form-data; name="name"
+
+Whey
+--boundary
+Content-Disposition: form-data; name="vaccine"
+
+nenhuma
+--boundary
+Content-Disposition: form-data; name="type"
+
+Gato
+--boundary
+Content-Disposition: form-data; name="ong"
+
+Bicho a Bessa
+--boundary
+Content-Disposition: form-data; name="gender"
+
+Cria
+--boundary
+Content-Disposition: form-data; name="comorb"
+
+Pokazideia
+--boundary
+Content-Disposition: form-data; name="size"
+
+novinho
+--boundary
+Content-Disposition: form-data; name="regioes_id"
+
+4
+--boundary
+Content-Disposition: form-data; name="image"; filename="wheyprotein.jpeg"
+Content-Type: image/jpeg
+
+< ./public/img/wheyprotein.jpeg
+--boundary--

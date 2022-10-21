@@ -39,7 +39,7 @@ async function read(id) {
 async function create(pet) {
   const db = await Database.connect();
 
-  const { name, vaccine, type, ong, gender, comorb, size, regioes_id } = pet;
+  const { name, image, vaccine, type, ong, gender, comorb, size, regioes_id } = pet;
 
   const sql = `
     INSERT INTO

@@ -53,8 +53,16 @@ href="index.html">Sair</a></li>
       
   <div class="form">
     <div class="frame">
-      <h2 class="text-align">Pets para adoção e doação</h2>
+      <h2 class="text-align">
+        Pets para adoção e doação
+        <a href="cadastro.html"> 
+          <button type="button" class="btn btn-secondary float-end rounded-circle">
+            +
+          </button>
+        </a>
+      </h2>
     </div>
+    <br>
 
     <div class="cards">
       <main>
@@ -93,6 +101,7 @@ function createPetView(pet) {
             </span>
             </div>
            <div class="card-body">
+            <img src="${pet.image}" class="card-caixa" alt="${pet.name}"/>
             <p class="card-caixa">Vacina: ${pet.vaccine}</p>
             <p class="card-caixa">Tipo: ${pet.type} </p>       
             <p class="card-caixa">ONG: ${pet.ong} </p>

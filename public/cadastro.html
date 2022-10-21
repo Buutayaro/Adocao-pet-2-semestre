@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="pt-br">
 
 <head>
@@ -120,6 +120,14 @@ Tamanho:</label>
                     <input type="text" class="form-control" id="size" name="size">
                 </div>
             </div>
+            <div class="row1">
+                <div class="col-text">
+                    <label for="image" class="form-label">Foto do pet:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+            </div>
             <div class="col-auto">
                 <input type="submit" class="btn" value="Cadastrar">
             </div>
@@ -139,12 +147,12 @@ Tamanho:</label>
             location.href = '/signup.html';
     }
 
-    form.onsubmit = (event) => {
+    form.onsubmit =  async (event) => {
       event.preventDefault();
 
-      const pet = Object.fromEntries(new FormData(form));
+      const pet = new FormData(form);
 
-      createPet(pet);
+      const NewPet = await createPet(pet);
 
       form.reset();
     };
@@ -154,9 +162,8 @@ Tamanho:</label>
 
       const config = {
         method: 'post',
-        body: JSON.stringify(pet),
+        body: pet,
         headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
           Authorization: `Bearer ${Auth.getToken()}`,
         },
       };
