@@ -2,6 +2,7 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import multer from 'multer';
+import { celebrate, Joi, errors, Segments } from 'celebrate';
 
 import uploadConfig from './config/multer.js';
 import Regiao from "./models/regiao.js";
@@ -55,6 +56,18 @@ router.post(
   '/pet',
   isAuthenticated,
   multer(uploadConfig).single('image'),
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      name: Joi.string().required(),
+      vaccine: Joi.string().required(),
+      type: Joi.string().required(),
+      ong: Joi.string().required(),
+      gender: Joi.string().required(),
+      comorb: Joi.string().required(),
+      size: Joi.string().required(),
+      regioes_id: Joi.number().integer(),
+    }),
+  }),
   async (req, res) => {
     try {
       
@@ -128,15 +141,25 @@ router.get('/regioes', async (req, res) => {
   }  
 });
 
-router.post('/users', async (req, res) => {
-  try {
-    const user = req.body;
+router.post(
+  '/users',
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      name: Joi.string().required(),
+      email: Joi.string().email(),
+      password: Joi.string().min(8),
+      confirmation_password: Joi.string().min(8),
+    }),
+  }),
+  async (req, res) => {
+    try {
+      const user = req.body;
 
-    const newUser = await User.create(user);
+      const newUser = await User.create(user);
 
-    await SendMail.createNewUser(user.email);
+      await SendMail.createNewUser(user.email);
 
-    res.json(newUser);
+      res.json(newUser);
   } catch(error) {
     throw new Error('Error in create user');
   }
